@@ -265,7 +265,14 @@ public class SessionManager {
     private func createSession() {
         dispatchPrecondition(condition: .onQueue(operationQueue))
         guard shouldCreatSession else { return }
+        // Simulator cannot reliably exercise the system background daemon. This
+        // branch tests Tiercel's validation, delegate and app-container saving
+        // only; *physical iOS* always uses the original background session.
+        #if targetEnvironment(simulator)
+        let sessionConfiguration = URLSessionConfiguration.default
+        #else
         let sessionConfiguration = URLSessionConfiguration.background(withIdentifier: identifier)
+        #endif
         mutableState.read { state in
             sessionConfiguration.timeoutIntervalForRequest = state.configuration.timeoutIntervalForRequest
             sessionConfiguration.httpMaximumConnectionsPerHost = 100000

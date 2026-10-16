@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0B0B0B0A000000000000001 /* TiercelLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B0B0A000000000000002 /* TiercelLabView.swift */; };
 		E1EBF4F324E9993300697485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF4F224E9993300697485 /* AppDelegate.swift */; };
 		E1EBF4FA24E9993300697485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1EBF4F824E9993300697485 /* Main.storyboard */; };
 		E1EBF4FC24E9993500697485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1EBF4FB24E9993500697485 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B0B0B0B0A000000000000002 /* TiercelLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiercelLabView.swift; sourceTree = "<group>"; };
 		E1EBF4EF24E9993300697485 /* Tiercel-iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiercel-iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1EBF4F224E9993300697485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1EBF4F924E9993300697485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				E1EBF4F224E9993300697485 /* AppDelegate.swift */,
+				B0B0B0B0A000000000000002 /* TiercelLabView.swift */,
 				E1EBF50924E99BBB00697485 /* BaseViewController.swift */,
 				E1EBF50C24E99BBB00697485 /* ViewController1.swift */,
 				E1EBF51024E99BBB00697485 /* ViewController2.swift */,
@@ -204,6 +207,7 @@
 				E1EBF51924E99BBC00697485 /* ViewController2.swift in Sources */,
 				E1EBF51A24E99BBC00697485 /* ViewController3.swift in Sources */,
 				E1EBF4F324E9993300697485 /* AppDelegate.swift in Sources */,
+				B0B0B0B0A000000000000001 /* TiercelLabView.swift in Sources */,
 				E1EBF51724E99BBC00697485 /* DownloadTaskCell.swift in Sources */,
 				E1EBF51624E99BBC00697485 /* ListViewCell.swift in Sources */,
 				E1EBF51324E99BBC00697485 /* DownloadViewController.swift in Sources */,
@@ -355,12 +359,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3437T5EGX;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Tiercel-iOS-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Daniels.Tiercel-iOS-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexsoftware.tiercellab";
 				PRODUCT_NAME = "Tiercel-iOS-Demo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -374,12 +378,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3437T5EGX;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Tiercel-iOS-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Daniels.Tiercel-iOS-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexsoftware.tiercellab";
 				PRODUCT_NAME = "Tiercel-iOS-Demo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
