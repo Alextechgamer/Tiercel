@@ -8,6 +8,7 @@
 
 import UIKit
 import Tiercel
+import SwiftUI
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -15,10 +16,11 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    lazy var tiercelLabModel = TiercelLabModel()
     
-    let sessionManager1 = SessionManager("ViewController1", configuration: SessionConfiguration())
+    lazy var sessionManager1 = SessionManager("ViewController1", configuration: SessionConfiguration())
     
-    var sessionManager2: SessionManager = {
+    lazy var sessionManager2: SessionManager = {
         var configuration = SessionConfiguration()
         configuration.allowsCellularAccess = true
         let path = Cache.defaultDiskCachePathClosure("Test")
@@ -27,14 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return manager
     }()
     
-    let sessionManager3 = SessionManager("ViewController3", configuration: SessionConfiguration())
+    lazy var sessionManager3 = SessionManager("ViewController3", configuration: SessionConfiguration())
     
-    let sessionManager4 = SessionManager("ViewController4", configuration: SessionConfiguration())
+    lazy var sessionManager4 = SessionManager("ViewController4", configuration: SessionConfiguration())
 
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        let newWindow = UIWindow(frame: UIScreen.main.bounds)
+        newWindow.rootViewController = UIHostingController(rootView: TiercelLabView(model: tiercelLabModel))
+        window = newWindow
+        newWindow.makeKeyAndVisible()
+        #if DEBUG && targetEnvironment(simulator)
+        if ProcessInfo.processInfo.environment["TIERCEL_LAB_AUTORUN"] == "1" {
+            DispatchQueue.main.async { [weak self] in self?.tiercelLabModel.start() }
+        }
+        #endif
         return true
     }
 
@@ -61,12 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-        let downloadManagers = [sessionManager1, sessionManager2, sessionManager3, sessionManager4]
-        for manager in downloadManagers {
-            if manager.identifier == identifier {
-                manager.completionHandler = completionHandler
-                break
-            }
+        if tiercelLabModel.manager.identifier == identifier {
+            tiercelLabModel.manager.completionHandler = completionHandler
+        } else {
+            completionHandler()
         }
     }
 

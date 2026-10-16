@@ -69,3 +69,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+# Carry Tiercel Lab local build/evidence outputs
+LabBuild/
+LabEvidence/*.log
+LabEvidence/bootstatus.txt
+LabEvidence/launch.txt
+LabEvidence/simulator-build.log
+LabEvidence/latest-result.json
